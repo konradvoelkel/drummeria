@@ -1,0 +1,105 @@
+{
+  "id": "Sequential Circuits DrumTraks",
+  "name": "Sequential Circuits DrumTraks",
+  "category": "vintage",
+  "tune": 0,
+  "_note": "Sample files are not distributed with this repository (see README, Samples & licensing). Drop legally obtained one-shots with these names into this folder.",
+  "instruments": {
+    "kick": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "TRAK Kick.wav"
+        }
+      ]
+    },
+    "snare": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "TRAK Snare.wav"
+        }
+      ]
+    },
+    "rim": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "TRAK Rim.wav"
+        }
+      ]
+    },
+    "clap": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "TRAK Clap.wav"
+        }
+      ]
+    },
+    "hihat_closed": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "TRAK Hat Closed.wav"
+        }
+      ]
+    },
+    "hihat_pedal": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "TRAK Hat Closed.wav"
+        }
+      ]
+    },
+    "hihat_open": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "TRAK Hat Open.wav"
+        }
+      ]
+    },
+    "tom_low": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "TRAK Tom Lo.wav"
+        }
+      ]
+    },
+    "tom_high": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "TRAK Tom Hi.wav"
+        }
+      ]
+    },
+    "crash": {
+      "choke": "crash",
+      "layers": [
+        {
+          "file": "TRAK Crash.wav"
+        }
+      ]
+    },
+    "ride": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "TRAK Ride.wav"
+        }
+      ]
+    },
+    "cowbell": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "TRAK Cowbell.wav"
+        }
+      ]
+    }
+  }
+}

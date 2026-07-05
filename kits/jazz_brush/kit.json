@@ -1,0 +1,22 @@
+{
+  "id": "jazz_brush",
+  "name": "Jazz Brushes (Samples)",
+  "category": "acoustic",
+  "tune": 0,
+  "_comment": "Example jazz brushes kit. The snare typically has brush 'swish' and 'tap' variants — map them to velocity layers.",
+  "instruments": {
+    "kick":         { "choke": null,    "layers": [ { "file": "brush_kick.wav" } ] },
+    "snare":        { "choke": null,    "layers": [ { "file": "brush_tap.wav", "minVel": 0, "maxVel": 79 }, { "file": "brush_swish.wav", "minVel": 80, "maxVel": 127 } ] },
+    "rim":          { "choke": null,    "layers": [ { "file": "brush_rim.wav" } ] },
+    "clap":         { "choke": null,    "layers": [ { "file": "brush_clap.wav" } ] },
+    "hihat_closed": { "choke": "hihat", "layers": [ { "file": "brush_hat_closed.wav" } ] },
+    "hihat_pedal":  { "choke": "hihat", "layers": [ { "file": "brush_hat_closed.wav" } ] },
+    "hihat_open":   { "choke": "hihat", "layers": [ { "file": "brush_hat_open.wav" } ] },
+    "tom_low":      { "choke": null,    "layers": [ { "file": "brush_tom_low.wav" } ] },
+    "tom_mid":      { "choke": null,    "layers": [ { "file": "brush_tom_mid.wav" } ] },
+    "tom_high":     { "choke": null,    "layers": [ { "file": "brush_tom_high.wav" } ] },
+    "crash":        { "choke": "crash", "layers": [ { "file": "brush_crash.wav" } ] },
+    "ride":         { "choke": null,    "layers": [ { "file": "brush_ride.wav" } ] },
+    "cowbell":      { "choke": null,    "layers": [ { "file": "brush_cowbell.wav" } ] }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "id": "Roland TR-727",
+  "name": "Roland TR-727",
+  "category": "vintage",
+  "tune": 0,
+  "_note": "Sample files are not distributed with this repository (see README, Samples & licensing). Drop legally obtained one-shots with these names into this folder.",
+  "instruments": {
+    "kick": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "727 Conga Lo.wav"
+        }
+      ]
+    },
+    "snare": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "727 Timbale Hi.wav"
+        }
+      ]
+    },
+    "clap": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "727 Whistle Short.wav"
+        }
+      ]
+    },
+    "hihat_closed": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "727 Cabasa.wav"
+        }
+      ]
+    },
+    "hihat_pedal": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "727 Cabasa.wav"
+        }
+      ]
+    },
+    "hihat_open": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "727 Maraca.wav"
+        }
+      ]
+    },
+    "tom_low": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "727 Timbale Lo.wav"
+        }
+      ]
+    },
+    "tom_mid": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "727 Conga Mute.wav"
+        }
+      ]
+    },
+    "tom_high": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "727 Bongo Hi.wav"
+        }
+      ]
+    },
+    "crash": {
+      "choke": "crash",
+      "layers": [
+        {
+          "file": "727 Starchime.wav"
+        }
+      ]
+    },
+    "cowbell": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "727 Agogo Hi.wav"
+        }
+      ]
+    }
+  }
+}

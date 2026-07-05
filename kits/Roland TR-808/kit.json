@@ -1,0 +1,105 @@
+{
+  "id": "Roland TR-808",
+  "name": "Roland TR-808",
+  "category": "vintage",
+  "tune": 0,
+  "_note": "Sample files are not distributed with this repository (see README, Samples & licensing). Drop legally obtained one-shots with these names into this folder.",
+  "instruments": {
+    "kick": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "808 Kick.wav"
+        }
+      ]
+    },
+    "snare": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "808 Snare.wav"
+        }
+      ]
+    },
+    "rim": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "808 Rim.wav"
+        }
+      ]
+    },
+    "clap": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "808 Clap.wav"
+        }
+      ]
+    },
+    "hihat_closed": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "808 Hat Closed.wav"
+        }
+      ]
+    },
+    "hihat_pedal": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "808 Hat Closed.wav"
+        }
+      ]
+    },
+    "hihat_open": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "808 Hat Open.wav"
+        }
+      ]
+    },
+    "tom_low": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "808 Tom Lo.wav"
+        }
+      ]
+    },
+    "tom_mid": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "808 Tom Mid.wav"
+        }
+      ]
+    },
+    "tom_high": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "808 Tom Hi.wav"
+        }
+      ]
+    },
+    "crash": {
+      "choke": "crash",
+      "layers": [
+        {
+          "file": "808 Cymbal.wav"
+        }
+      ]
+    },
+    "cowbell": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "808 Cowbell.wav"
+        }
+      ]
+    }
+  }
+}

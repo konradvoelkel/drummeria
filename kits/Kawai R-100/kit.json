@@ -1,0 +1,105 @@
+{
+  "id": "Kawai R-100",
+  "name": "Kawai R-100",
+  "category": "vintage",
+  "tune": 0,
+  "_note": "Sample files are not distributed with this repository (see README, Samples & licensing). Drop legally obtained one-shots with these names into this folder.",
+  "instruments": {
+    "kick": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "R100 Kick 1.wav"
+        }
+      ]
+    },
+    "snare": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "R100 Snare 1.wav"
+        }
+      ]
+    },
+    "rim": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "R100 Rim.wav"
+        }
+      ]
+    },
+    "hihat_closed": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "R100 Hat Closed 1.wav"
+        }
+      ]
+    },
+    "hihat_pedal": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "R100 Hat Closed 1.wav"
+        }
+      ]
+    },
+    "hihat_open": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "R100 Hat Open.wav"
+        }
+      ]
+    },
+    "tom_low": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "R100 Tom Lo.wav"
+        }
+      ]
+    },
+    "tom_mid": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "R100 Conga Hi.wav"
+        }
+      ]
+    },
+    "tom_high": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "R100 Tom Hi.wav"
+        }
+      ]
+    },
+    "crash": {
+      "choke": "crash",
+      "layers": [
+        {
+          "file": "R100 Crash.wav"
+        }
+      ]
+    },
+    "ride": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "R100 Ride 1.wav"
+        }
+      ]
+    },
+    "cowbell": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "R100 Cowbell.wav"
+        }
+      ]
+    }
+  }
+}

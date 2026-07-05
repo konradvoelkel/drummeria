@@ -1,0 +1,105 @@
+{
+  "id": "E-mu Drumulator",
+  "name": "E-mu Drumulator",
+  "category": "vintage",
+  "tune": 0,
+  "_note": "Sample files are not distributed with this repository (see README, Samples & licensing). Drop legally obtained one-shots with these names into this folder.",
+  "instruments": {
+    "kick": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "EDRUM Kick.wav"
+        }
+      ]
+    },
+    "snare": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "EDRUM Snare.wav"
+        }
+      ]
+    },
+    "rim": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "EDRUM Rim.wav"
+        }
+      ]
+    },
+    "clap": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "EDRUM Clap.wav"
+        }
+      ]
+    },
+    "hihat_closed": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "EDRUM Hat Closed.wav"
+        }
+      ]
+    },
+    "hihat_pedal": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "EDRUM Hat Closed.wav"
+        }
+      ]
+    },
+    "hihat_open": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "EDRUM Hat Open.wav"
+        }
+      ]
+    },
+    "tom_low": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "EDRUM Tom Lo.wav"
+        }
+      ]
+    },
+    "tom_mid": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "EDRUM Tom Mid.wav"
+        }
+      ]
+    },
+    "tom_high": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "EDRUM Tom Hi.wav"
+        }
+      ]
+    },
+    "crash": {
+      "choke": "crash",
+      "layers": [
+        {
+          "file": "EDRUM Cymbal.wav"
+        }
+      ]
+    },
+    "cowbell": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "EDRUM Cowbell.wav"
+        }
+      ]
+    }
+  }
+}

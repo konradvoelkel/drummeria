@@ -1,0 +1,97 @@
+{
+  "id": "Acetone Rhythm Ace",
+  "name": "Acetone Rhythm Ace",
+  "category": "vintage",
+  "tune": 0,
+  "_note": "Sample files are not distributed with this repository (see README, Samples & licensing). Drop legally obtained one-shots with these names into this folder.",
+  "instruments": {
+    "kick": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "ACE Kick.wav"
+        }
+      ]
+    },
+    "snare": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "ACE Snare.wav"
+        }
+      ]
+    },
+    "rim": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "ACE Rim.wav"
+        }
+      ]
+    },
+    "hihat_closed": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "ACE Hat Closed.wav"
+        }
+      ]
+    },
+    "hihat_pedal": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "ACE Hat Closed.wav"
+        }
+      ]
+    },
+    "hihat_open": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "ACE Maraca.wav"
+        }
+      ]
+    },
+    "tom_low": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "ACE Conga Lo.wav"
+        }
+      ]
+    },
+    "tom_mid": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "ACE Bongo Lo.wav"
+        }
+      ]
+    },
+    "tom_high": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "ACE Bongo Hi.wav"
+        }
+      ]
+    },
+    "crash": {
+      "choke": "crash",
+      "layers": [
+        {
+          "file": "ACE Cymbal.wav"
+        }
+      ]
+    },
+    "cowbell": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "ACE Cowbell.wav"
+        }
+      ]
+    }
+  }
+}

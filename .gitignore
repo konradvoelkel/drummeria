@@ -1,0 +1,20 @@
+# OS noise
+.DS_Store
+Thumbs.db
+
+# ── Sample audio: NOT distributed ────────────────────────────────────────────
+# The kits/ folders reference one-shots sampled from commercial drum machines
+# (Roland, Linn, Oberheim, Boss, …). Those recordings may be rights-encumbered,
+# so no audio files are committed — only the kit.json manifests. Drop legally
+# obtained samples into the folders locally and the kits become playable.
+kits/**/*.wav
+kits/**/*.WAV
+kits/**/*.aif
+kits/**/*.aiff
+kits/**/*.mp3
+kits/**/*.ogg
+kits/**/*.flac
+kits/**/*.zip
+
+# Local tooling
+node_modules/

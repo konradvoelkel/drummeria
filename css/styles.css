@@ -1,0 +1,188 @@
+/* =============================================================================
+ * styles.css — minimal, clean dark UI
+ * ========================================================================== */
+
+:root {
+  --bg: #0e1116;
+  --panel: #171c24;
+  --panel-2: #1f2630;
+  --line: #2a323d;
+  --text: #e7edf3;
+  --muted: #8a97a6;
+  --accent: #ff5a3c;
+  --accent-2: #36c08a;
+  --blue: #4aa3ff;
+  --radius: 12px;
+  --pad: #232c38;
+  --pad-active: #ff5a3c;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.5 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+code {
+  background: var(--panel-2);
+  padding: 1px 5px;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+/* ── start overlay ─────────────────────────────────────────────────────── */
+.overlay {
+  position: fixed; inset: 0;
+  background: radial-gradient(circle at 50% 30%, #1a2230, #0a0d12);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 100;
+}
+.overlay-card {
+  text-align: center; max-width: 480px; padding: 32px;
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.overlay-card h1 { margin: 0 0 12px; font-size: 28px; }
+.overlay-card p { color: var(--muted); }
+.hint { font-size: 12px; margin-top: 18px; }
+
+/* ── topbar ────────────────────────────────────────────────────────────── */
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 20px; border-bottom: 1px solid var(--line);
+  background: var(--panel);
+}
+.brand { font-size: 18px; }
+.status-group { display: flex; gap: 10px; align-items: center; }
+
+.badge {
+  font-size: 12px; padding: 4px 10px; border-radius: 20px;
+  background: var(--panel-2); border: 1px solid var(--line);
+}
+.badge-on { background: rgba(54,192,138,.15); border-color: var(--accent-2); color: var(--accent-2); }
+.badge-off { background: rgba(255,90,60,.12); border-color: var(--accent); color: var(--accent); }
+
+/* ── layout ────────────────────────────────────────────────────────────── */
+.layout {
+  display: grid;
+  grid-template-columns: 280px 1fr 320px;
+  gap: 16px; padding: 16px; align-items: start;
+}
+@media (max-width: 1000px) { .layout { grid-template-columns: 1fr; } }
+
+.panel {
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 16px;
+}
+.panel h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--muted); margin: 18px 0 10px; }
+.panel h2:first-child { margin-top: 0; }
+.panel h3 { font-size: 12px; color: var(--muted); margin: 14px 0 8px; }
+
+.muted { color: var(--muted); font-size: 12px; }
+
+/* ── form fields ───────────────────────────────────────────────────────── */
+.field { display: block; margin-bottom: 12px; }
+.field > span { display: flex; justify-content: space-between;
+  font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+select, input[type="number"], input[type="text"] {
+  width: 100%; padding: 8px 10px; color: var(--text);
+  background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px;
+}
+input[type="range"] { width: 100%; accent-color: var(--accent); }
+.check { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+.inline { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; }
+.inline input { width: 70px; }
+
+/* ── buttons ───────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-block; cursor: pointer; user-select: none;
+  padding: 9px 14px; margin: 3px 4px 3px 0; color: var(--text);
+  background: var(--panel-2); border: 1px solid var(--line);
+  border-radius: 8px; font-size: 13px; text-decoration: none;
+}
+.btn:hover { border-color: var(--blue); }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+.btn-lg { padding: 12px 28px; font-size: 16px; }
+.btn-sm { padding: 6px 10px; font-size: 12px; }
+.btn-rec.recording { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.active { background: var(--accent-2); border-color: var(--accent-2); color: #06231a; font-weight: 600; }
+.btn-file { position: relative; overflow: hidden; }
+.btn-link { background: transparent; border-color: var(--accent-2); color: var(--accent-2); }
+
+/* ── stylised drum kit (SVG) ───────────────────────────────────────────── */
+.drumkit { margin: 8px 0 14px; }
+.drumkit svg { width: 100%; height: auto; display: block; }
+
+.dk-stand line { stroke: var(--line); stroke-width: 4; stroke-linecap: round; }
+
+.dk-piece { cursor: pointer; transition: filter .1s; }
+.dk-piece:hover { filter: brightness(1.25); }
+.dk-piece.hit { filter: brightness(1.7) drop-shadow(0 0 10px var(--accent)); }
+
+.dk-cym   { fill: #b98b3a; stroke: #8a6526; stroke-width: 2; }
+.dk-bell  { fill: #d9ad55; }
+.dk-shell { fill: #232c38; stroke: var(--line); stroke-width: 3; }
+.dk-head  { fill: #3a4656; stroke: #4b5a6e; stroke-width: 2; }
+.dk-dot   { fill: var(--accent); opacity: .85; }
+.dk-rim   { fill: none; stroke: #5d6f85; stroke-width: 7; pointer-events: stroke; }
+.dk-pedal { fill: #2c3542; stroke: var(--line); stroke-width: 2; }
+.dk-metal { fill: #8f9aa8; stroke: #6b7684; stroke-width: 2; }
+.dk-clap  { fill: var(--accent-2); opacity: .8; }
+.dk-spark line { stroke: var(--accent-2); stroke-width: 3; stroke-linecap: round; }
+.dk-label { fill: var(--muted); font-size: 12px; text-anchor: middle;
+  font-family: system-ui, sans-serif; pointer-events: none; }
+
+/* ── demo grooves ──────────────────────────────────────────────────────── */
+.groove-select { width: auto; min-width: 190px; }
+
+/* ── pads ──────────────────────────────────────────────────────────────── */
+.pads-head { display: flex; align-items: baseline; gap: 12px; }
+.pads {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 8px 0 4px;
+}
+@media (max-width: 560px) { .pads { grid-template-columns: repeat(2, 1fr); } }
+.pad {
+  position: relative; cursor: pointer; user-select: none;
+  background: var(--pad); border: 1px solid var(--line); border-radius: 10px;
+  padding: 16px 10px; text-align: center; transition: transform .04s, background .12s;
+}
+.pad .pad-name { font-weight: 600; font-size: 13px; }
+.pad .pad-note { font-size: 11px; color: var(--muted); margin-top: 3px; }
+.pad .pad-vel {
+  position: absolute; left: 6px; right: 6px; bottom: 6px; height: 3px;
+  background: var(--line); border-radius: 2px; overflow: hidden;
+}
+.pad .pad-vel::after {
+  content: ""; display: block; height: 100%; width: var(--v, 0%);
+  background: var(--accent-2); transition: width .05s;
+}
+.pad.hit { background: var(--pad-active); transform: scale(.96); }
+.pad.learning { border-color: var(--blue); box-shadow: 0 0 0 2px rgba(74,163,255,.4); }
+
+/* ── transport ─────────────────────────────────────────────────────────── */
+.transport { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 8px; }
+.transport .sep { width: 1px; height: 22px; background: var(--line); margin: 0 6px; }
+
+/* ── mapping list ──────────────────────────────────────────────────────── */
+.map-list { display: grid; gap: 6px; max-height: 230px; overflow: auto; padding-right: 4px; }
+.map-row { display: grid; grid-template-columns: 1fr auto auto; gap: 6px; align-items: center;
+  background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; }
+.map-row .slot { font-size: 12px; }
+.map-row .note { font-size: 12px; color: var(--muted); min-width: 64px; text-align: right; }
+
+/* ── downloads ─────────────────────────────────────────────────────────── */
+.dl-log {
+  margin-top: 10px; max-height: 150px; overflow: auto; font-size: 12px;
+  background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px;
+  padding: 8px; white-space: pre-wrap; color: var(--muted);
+}
+.dl-log:empty { display: none; }
+.cached-kits { display: grid; gap: 6px; }
+.cached-kit { display: flex; justify-content: space-between; align-items: center;
+  background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; }
+
+.footer { padding: 14px 20px; border-top: 1px solid var(--line); text-align: center; }

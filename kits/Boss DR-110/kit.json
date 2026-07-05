@@ -1,0 +1,65 @@
+{
+  "id": "Boss DR-110",
+  "name": "Boss DR-110",
+  "category": "vintage",
+  "tune": 0,
+  "_note": "Sample files are not distributed with this repository (see README, Samples & licensing). Drop legally obtained one-shots with these names into this folder.",
+  "instruments": {
+    "kick": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "DR110 Kick.WAV"
+        }
+      ]
+    },
+    "snare": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "DR110 Snare.WAV"
+        }
+      ]
+    },
+    "clap": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "DR110 Clap.WAV"
+        }
+      ]
+    },
+    "hihat_closed": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "DR110 Hat Closed.WAV"
+        }
+      ]
+    },
+    "hihat_pedal": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "DR110 Hat Closed.WAV"
+        }
+      ]
+    },
+    "hihat_open": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "DR110 Hat Open.WAV"
+        }
+      ]
+    },
+    "crash": {
+      "choke": "crash",
+      "layers": [
+        {
+          "file": "DR110 Cymbal.WAV"
+        }
+      ]
+    }
+  }
+}

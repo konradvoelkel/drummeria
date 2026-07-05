@@ -1,0 +1,22 @@
+{
+  "id": "electronic_808",
+  "name": "Electronic 808 (Samples)",
+  "category": "electronic",
+  "tune": 0,
+  "_comment": "Example 808 sample kit. Long kick decay; single-layer one-shots are fine for electronic kits.",
+  "instruments": {
+    "kick":         { "choke": null,    "layers": [ { "file": "808_kick.wav" } ] },
+    "snare":        { "choke": null,    "layers": [ { "file": "808_snare.wav" } ] },
+    "rim":          { "choke": null,    "layers": [ { "file": "808_rim.wav" } ] },
+    "clap":         { "choke": null,    "layers": [ { "file": "808_clap.wav" } ] },
+    "hihat_closed": { "choke": "hihat", "layers": [ { "file": "808_hat_closed.wav" } ] },
+    "hihat_pedal":  { "choke": "hihat", "layers": [ { "file": "808_hat_closed.wav" } ] },
+    "hihat_open":   { "choke": "hihat", "layers": [ { "file": "808_hat_open.wav" } ] },
+    "tom_low":      { "choke": null,    "layers": [ { "file": "808_tom_low.wav" } ] },
+    "tom_mid":      { "choke": null,    "layers": [ { "file": "808_tom_mid.wav" } ] },
+    "tom_high":     { "choke": null,    "layers": [ { "file": "808_tom_high.wav" } ] },
+    "crash":        { "choke": "crash", "layers": [ { "file": "808_crash.wav" } ] },
+    "ride":         { "choke": null,    "layers": [ { "file": "808_ride.wav" } ] },
+    "cowbell":      { "choke": null,    "layers": [ { "file": "808_cowbell.wav" } ] }
+  }
+}

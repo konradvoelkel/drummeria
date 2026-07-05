@@ -1,0 +1,118 @@
+{
+  "id": "Roland CR-78",
+  "name": "Roland CR-78",
+  "category": "vintage",
+  "tune": 0,
+  "_note": "Sample files are not distributed with this repository (see README, Samples & licensing). Drop legally obtained one-shots with these names into this folder.",
+  "instruments": {
+    "kick": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "CR78 Kick.wav",
+          "minVel": 0,
+          "maxVel": 99
+        },
+        {
+          "file": "CR78 Kick Accent.wav",
+          "minVel": 100,
+          "maxVel": 127
+        }
+      ]
+    },
+    "snare": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "CR78 Snare.wav",
+          "minVel": 0,
+          "maxVel": 99
+        },
+        {
+          "file": "CR78 Snare Accent.wav",
+          "minVel": 100,
+          "maxVel": 127
+        }
+      ]
+    },
+    "rim": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "CR78 Rim.wav"
+        }
+      ]
+    },
+    "hihat_closed": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "CR78 Hat.wav",
+          "minVel": 0,
+          "maxVel": 99
+        },
+        {
+          "file": "CR78 Hat Accent.wav",
+          "minVel": 100,
+          "maxVel": 127
+        }
+      ]
+    },
+    "hihat_pedal": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "CR78 Hat.wav"
+        }
+      ]
+    },
+    "hihat_open": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "CR78 Guiro Short.wav"
+        }
+      ]
+    },
+    "tom_low": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "CR78 Conga Lo.wav"
+        }
+      ]
+    },
+    "tom_mid": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "CR78 Bongo Lo.wav"
+        }
+      ]
+    },
+    "tom_high": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "CR78 Bongo Hi.wav"
+        }
+      ]
+    },
+    "crash": {
+      "choke": "crash",
+      "layers": [
+        {
+          "file": "CR78 Cymbal.wav"
+        }
+      ]
+    },
+    "cowbell": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "CR78 Cowbell.wav"
+        }
+      ]
+    }
+  }
+}

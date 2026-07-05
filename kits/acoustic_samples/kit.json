@@ -1,0 +1,22 @@
+{
+  "id": "acoustic_samples",
+  "name": "Acoustic (Samples)",
+  "category": "acoustic",
+  "tune": 0,
+  "_comment": "Example multi-velocity sample manifest. Place the referenced WAV files (44.1kHz, 16/24-bit) in this folder. 'choke' groups silence each other (hi-hats; crashes). minVel/maxVel select a layer by MIDI velocity.",
+  "instruments": {
+    "kick":         { "choke": null,    "layers": [ { "file": "kick.wav", "minVel": 0, "maxVel": 127 } ] },
+    "snare":        { "choke": null,    "layers": [ { "file": "snare_soft.wav", "minVel": 0, "maxVel": 79 }, { "file": "snare_hard.wav", "minVel": 80, "maxVel": 127 } ] },
+    "rim":          { "choke": null,    "layers": [ { "file": "rimshot.wav" } ] },
+    "clap":         { "choke": null,    "layers": [ { "file": "clap.wav" } ] },
+    "hihat_closed": { "choke": "hihat", "layers": [ { "file": "hihat_closed.wav" } ] },
+    "hihat_pedal":  { "choke": "hihat", "layers": [ { "file": "hihat_pedal.wav" } ] },
+    "hihat_open":   { "choke": "hihat", "layers": [ { "file": "hihat_open.wav" } ] },
+    "tom_low":      { "choke": null,    "layers": [ { "file": "tom_floor.wav" } ] },
+    "tom_mid":      { "choke": null,    "layers": [ { "file": "tom_mid.wav" } ] },
+    "tom_high":     { "choke": null,    "layers": [ { "file": "tom_high.wav" } ] },
+    "crash":        { "choke": "crash", "layers": [ { "file": "crash.wav" } ] },
+    "ride":         { "choke": null,    "layers": [ { "file": "ride.wav" } ] },
+    "cowbell":      { "choke": null,    "layers": [ { "file": "cowbell.wav" } ] }
+  }
+}

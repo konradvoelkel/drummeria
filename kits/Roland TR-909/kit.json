@@ -1,0 +1,161 @@
+{
+  "id": "Roland TR-909",
+  "name": "Roland TR-909",
+  "category": "vintage",
+  "tune": 0,
+  "_note": "Sample files are not distributed with this repository (see README, Samples & licensing). Drop legally obtained one-shots with these names into this folder.",
+  "instruments": {
+    "kick": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "909 Kick.wav"
+        }
+      ]
+    },
+    "snare": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "909 Snare.wav",
+          "minVel": 0,
+          "maxVel": 99
+        },
+        {
+          "file": "Additional/Snare & Clap/909 Snare Accent.wav",
+          "minVel": 100,
+          "maxVel": 127
+        }
+      ]
+    },
+    "rim": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "909 Rim.wav",
+          "minVel": 0,
+          "maxVel": 99
+        },
+        {
+          "file": "Additional/Cymbal/909 Rim Accent.wav",
+          "minVel": 100,
+          "maxVel": 127
+        }
+      ]
+    },
+    "clap": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "909 Clap.wav"
+        }
+      ]
+    },
+    "hihat_closed": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "909 Hat Closed.wav"
+        }
+      ]
+    },
+    "hihat_pedal": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "909 Hat Closed.wav"
+        }
+      ]
+    },
+    "hihat_open": {
+      "choke": "hihat",
+      "layers": [
+        {
+          "file": "909 Hat Open.wav",
+          "minVel": 0,
+          "maxVel": 99
+        },
+        {
+          "file": "Additional/Hat/909 Hat Open Accent.wav",
+          "minVel": 100,
+          "maxVel": 127
+        }
+      ]
+    },
+    "tom_low": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "909 Tom Lo.wav",
+          "minVel": 0,
+          "maxVel": 99
+        },
+        {
+          "file": "Additional/Tom/909 Tom Lo Accent.wav",
+          "minVel": 100,
+          "maxVel": 127
+        }
+      ]
+    },
+    "tom_mid": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "909 Tom Mid.wav",
+          "minVel": 0,
+          "maxVel": 99
+        },
+        {
+          "file": "Additional/Tom/909 Tom Mid Accent.wav",
+          "minVel": 100,
+          "maxVel": 127
+        }
+      ]
+    },
+    "tom_high": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "909 Tom Hi.wav",
+          "minVel": 0,
+          "maxVel": 99
+        },
+        {
+          "file": "Additional/Tom/909 Tom Hi Accent.wav",
+          "minVel": 100,
+          "maxVel": 127
+        }
+      ]
+    },
+    "crash": {
+      "choke": "crash",
+      "layers": [
+        {
+          "file": "909 Crash.wav",
+          "minVel": 0,
+          "maxVel": 99
+        },
+        {
+          "file": "Additional/Cymbal/909 Crash Accent.wav",
+          "minVel": 100,
+          "maxVel": 127
+        }
+      ]
+    },
+    "ride": {
+      "choke": null,
+      "layers": [
+        {
+          "file": "909 Ride.wav",
+          "minVel": 0,
+          "maxVel": 99
+        },
+        {
+          "file": "Additional/Cymbal/909 Ride Accent.wav",
+          "minVel": 100,
+          "maxVel": 127
+        }
+      ]
+    }
+  }
+}

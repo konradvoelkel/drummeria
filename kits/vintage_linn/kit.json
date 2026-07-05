@@ -1,0 +1,22 @@
+{
+  "id": "vintage_linn",
+  "name": "Vintage Linn (Samples)",
+  "category": "vintage",
+  "tune": 0,
+  "_comment": "Example vintage digital drum-machine kit (LinnDrum/DMX style). Short, punchy 8-bit one-shots work great here.",
+  "instruments": {
+    "kick":         { "choke": null,    "layers": [ { "file": "linn_kick.wav" } ] },
+    "snare":        { "choke": null,    "layers": [ { "file": "linn_snare.wav" } ] },
+    "rim":          { "choke": null,    "layers": [ { "file": "linn_rim.wav" } ] },
+    "clap":         { "choke": null,    "layers": [ { "file": "linn_clap.wav" } ] },
+    "hihat_closed": { "choke": "hihat", "layers": [ { "file": "linn_hat_closed.wav" } ] },
+    "hihat_pedal":  { "choke": "hihat", "layers": [ { "file": "linn_hat_closed.wav" } ] },
+    "hihat_open":   { "choke": "hihat", "layers": [ { "file": "linn_hat_open.wav" } ] },
+    "tom_low":      { "choke": null,    "layers": [ { "file": "linn_tom_low.wav" } ] },
+    "tom_mid":      { "choke": null,    "layers": [ { "file": "linn_tom_mid.wav" } ] },
+    "tom_high":     { "choke": null,    "layers": [ { "file": "linn_tom_high.wav" } ] },
+    "crash":        { "choke": "crash", "layers": [ { "file": "linn_crash.wav" } ] },
+    "ride":         { "choke": null,    "layers": [ { "file": "linn_ride.wav" } ] },
+    "cowbell":      { "choke": null,    "layers": [ { "file": "linn_cowbell.wav" } ] }
+  }
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MIDI Drum Machine</title>
+  <meta name="description" content="Turn a MIDI electronic drum kit into a professional drum machine — pure browser, no install." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Gesture gate: audio + MIDI must start from a user interaction. -->
+  <div id="startOverlay" class="overlay">
+    <div class="overlay-card">
+      <h1>🥁 MIDI Drum Machine</h1>
+      <p>Connect your electronic drum kit, then start. Built-in kits are synthesised
+         in real time — no downloads needed, works fully offline.</p>
+      <button id="startBtn" class="btn btn-primary btn-lg">Start</button>
+      <p class="hint">Best in Chrome / Edge. Web MIDI works over <code>https://</code> or by opening this file directly.</p>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">🥁 <strong>Drum Machine</strong></div>
+    <div class="status-group">
+      <span id="midiStatus" class="badge badge-off">MIDI: off</span>
+      <span id="latencyBadge" class="badge" title="Audio output latency">~– ms</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- ── Left column: devices, kit, mixer, options ─────────────────── -->
+    <section class="panel">
+      <h2>Setup</h2>
+
+      <label class="field">
+        <span>MIDI device</span>
+        <select id="deviceSelect"><option value="all">All inputs</option></select>
+      </label>
+
+      <label class="field">
+        <span>Kit</span>
+        <select id="kitSelect"></select>
+      </label>
+
+      <label class="field">
+        <span>Layer kit (optional)</span>
+        <select id="kit2Select"><option value="">— none —</option></select>
+      </label>
+
+      <label class="field">
+        <span>Layer mix <output id="layerMixOut">60%</output></span>
+        <input id="layerMix" type="range" min="0" max="100" value="60" />
+      </label>
+
+      <label class="field">
+        <span>Master volume <output id="volOut">90%</output></span>
+        <input id="masterVol" type="range" min="0" max="120" value="90" />
+      </label>
+
+      <h2>Dynamics</h2>
+      <label class="field">
+        <span>Velocity curve</span>
+        <select id="velCurve">
+          <option value="linear">Linear (vel/127)</option>
+          <option value="exp">Soft (exponential)</option>
+          <option value="log">Hard (logarithmic)</option>
+          <option value="sShape">S-curve</option>
+          <option value="fixed">Fixed (ignore dynamics)</option>
+        </select>
+      </label>
+      <label class="check"><input id="humanize" type="checkbox" checked /> Humanize (±10ms / ±3% pitch)</label>
+    </section>
+
+    <!-- ── Center: drum kit, pads + visual feedback ──────────────────── -->
+    <section class="panel panel-pads">
+      <div class="pads-head">
+        <h2>Drum kit</h2>
+        <span class="muted">Click any piece to hear it — it flashes when played</span>
+      </div>
+      <div id="drumkit" class="drumkit"></div>
+
+      <div class="pads-head">
+        <h2>Pads</h2>
+        <span class="muted">Click to test · pads flash when your kit plays them</span>
+      </div>
+      <div id="pads" class="pads"></div>
+
+      <h2>Demo grooves</h2>
+      <div class="transport">
+        <select id="grooveSelect" class="groove-select"></select>
+        <button id="groovePlayBtn" class="btn">▶ Play groove</button>
+        <span class="muted">Hard-wired patterns — hear how the selected kit sounds</span>
+      </div>
+
+      <h2>Transport</h2>
+      <div class="transport">
+        <button id="metroBtn" class="btn">Metronome</button>
+        <label class="inline">BPM <input id="bpm" type="number" min="20" max="300" value="120" /></label>
+        <span class="sep"></span>
+        <button id="loopRecBtn" class="btn">● Loop Rec</button>
+        <button id="loopPlayBtn" class="btn">▶ Loop</button>
+        <button id="loopClearBtn" class="btn">Clear</button>
+        <span id="loopInfo" class="muted"></span>
+      </div>
+      <div class="transport">
+        <button id="wavRecBtn" class="btn btn-rec">● Record WAV</button>
+        <a id="wavDownload" class="btn btn-link" hidden>⬇ Download take</a>
+        <span id="wavInfo" class="muted"></span>
+      </div>
+    </section>
+
+    <!-- ── Right: mapping + sample library ────────────────────────────── -->
+    <section class="panel">
+      <h2>Pad mapping (MIDI note → slot)</h2>
+      <p class="muted">Click <em>Learn</em>, then hit a pad on your kit to assign its note.</p>
+      <div id="mapList" class="map-list"></div>
+      <button id="resetMap" class="btn btn-sm">Reset to General MIDI</button>
+
+      <h2>Sample library</h2>
+      <p class="muted">Built-in kits are synthesised. Add real sample kits below —
+        <em>Import folder…</em> loads any <code>kits/&lt;Machine&gt;</code> folder with WAVs
+        (works over <code>file://</code> too).</p>
+      <button id="downloadKits" class="btn">Download sample packs</button>
+      <label class="btn btn-file">Import ZIP…<input id="importZip" type="file" accept=".zip" hidden /></label>
+      <label class="btn btn-file">Import folder…<input id="importFolder" type="file" webkitdirectory hidden /></label>
+      <div id="dlLog" class="dl-log"></div>
+      <h3>Cached kits</h3>
+      <div id="cachedKits" class="cached-kits"><span class="muted">none yet</span></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span class="muted">Vanilla JS · Web MIDI · Web Audio · IndexedDB — no backend, no frameworks.</span>
+  </footer>
+
+  <!-- Load order matters: each module attaches to the global DM namespace. -->
+  <script src="js/utils.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/unzip.js"></script>
+  <script src="js/synth-engine.js"></script>
+  <script src="js/kits.js"></script>
+  <script src="js/audio-engine.js"></script>
+  <script src="js/sample-loader.js"></script>
+  <script src="js/midi-engine.js"></script>
+  <script src="js/recorder.js"></script>
+  <script src="js/metronome.js"></script>
+  <script src="js/loop-recorder.js"></script>
+  <script src="js/drumkit.js"></script>
+  <script src="js/demo-loops.js"></script>
+  <!-- Diagnostic only: defines DM.profiler. Needs a COOP/COEP server (serve.py)
+       and AudioWorklet; harmless to load elsewhere (just won't run). -->
+  <script src="js/scal-profiler.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

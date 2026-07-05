@@ -1,0 +1,13 @@
+{
+  "name": "ipald.drum_machine",
+  "version": "1.0.0",
+  "description": "Browser-only MIDI drum machine: Web MIDI + Web Audio, no install, no backend, no frameworks.",
+  "scripts": {
+    "serve": "python3 -m http.server 8000",
+    "start": "python3 -m http.server 8000",
+    "serve:isolated": "python3 serve.py 8000"
+  },
+  "keywords": ["web-midi", "web-audio", "drum-machine", "drums", "midi", "indexeddb", "vanilla-js"],
+  "author": "",
+  "license": "ISC"
+}

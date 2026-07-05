@@ -1,0 +1,31 @@
+{
+  "_comment": "List of sample-based kit folders served alongside the app. The app fetches this at startup (HTTP only — fetch is blocked on file://) and adds them to the kit selector. Sample audio is NOT distributed with the repository (see README, Samples & licensing): drop the .wav files referenced by each kit.json into its folder and the kit becomes playable.",
+  "kits": [
+    { "id": "acoustic_samples", "name": "Acoustic (Samples)" },
+    { "id": "electronic_808", "name": "Electronic 808 (Samples)" },
+    { "id": "vintage_linn", "name": "Vintage Linn (Samples)" },
+    { "id": "jazz_brush", "name": "Jazz Brushes (Samples)" },
+    { "id": "Acetone Rhythm Ace", "name": "Acetone Rhythm Ace" },
+    { "id": "Alesis SR-16", "name": "Alesis SR-16" },
+    { "id": "Boss DR-110", "name": "Boss DR-110" },
+    { "id": "Boss DR-55", "name": "Boss DR-55" },
+    { "id": "Casio RZ-1", "name": "Casio RZ-1" },
+    { "id": "E-mu Drumulator", "name": "E-mu Drumulator" },
+    { "id": "Kawai R-100", "name": "Kawai R-100" },
+    { "id": "Linn LM-1", "name": "Linn LM-1" },
+    { "id": "Linn LinnDrum", "name": "Linn LinnDrum" },
+    { "id": "Oberheim DMX", "name": "Oberheim DMX" },
+    { "id": "Oberheim DX", "name": "Oberheim DX" },
+    { "id": "Roland CR-78", "name": "Roland CR-78" },
+    { "id": "Roland R-8", "name": "Roland R-8" },
+    { "id": "Roland TR-505", "name": "Roland TR-505" },
+    { "id": "Roland TR-606", "name": "Roland TR-606" },
+    { "id": "Roland TR-626", "name": "Roland TR-626" },
+    { "id": "Roland TR-707", "name": "Roland TR-707" },
+    { "id": "Roland TR-727", "name": "Roland TR-727" },
+    { "id": "Roland TR-808", "name": "Roland TR-808" },
+    { "id": "Roland TR-909", "name": "Roland TR-909" },
+    { "id": "Sequential Circuits DrumTraks", "name": "Sequential Circuits DrumTraks" },
+    { "id": "Yamaha RX5", "name": "Yamaha RX5" }
+  ]
+}
