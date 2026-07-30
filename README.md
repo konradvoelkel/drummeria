@@ -1,5 +1,8 @@
 # 🥁 Drummeria — MIDI Drum Machine (browser-only)
 
+[![Sponsor on GitHub](https://img.shields.io/badge/Sponsor-%E2%9D%A4-ea4aaa?logo=githubsponsors&logoColor=white)](https://github.com/sponsors/ipald)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-%E2%98%95-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/ipald)
+
 **English** · [Italiano ⬇](#-drummeria--drum-machine-midi-solo-browser)
 
 Turn a MIDI electronic drum kit into a professional drum machine — **pure browser,
