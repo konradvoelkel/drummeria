@@ -71,6 +71,13 @@ DM.app = (function () {
       const hum = await DM.storage.getSetting('humanize');
       if (hum != null) { DM.AudioEngine.setHumanize({ enabled: hum }); const el = DM.util.$('#humanize'); if (el) el.checked = hum; }
 
+      const sus = await DM.storage.getSetting('sustain');
+      if (sus) {
+        DM.midi.setSustainConfig(sus);
+        const m = DM.util.$('#sustainMode'); if (m) m.value = sus.mode;
+        const v = DM.util.$('#sustainVel'); if (v) { v.value = sus.velocity; DM.util.$('#sustainVelOut').textContent = sus.velocity; }
+      }
+
       const vol = await DM.storage.getSetting('masterVol');
       if (vol != null) {
         DM.AudioEngine.setMasterVolume(vol / 100);
@@ -85,6 +92,12 @@ DM.app = (function () {
     vc && vc.addEventListener('change', () => DM.storage.setSetting('velCurve', vc.value).catch(() => {}));
     const hum = DM.util.$('#humanize');
     hum && hum.addEventListener('change', () => DM.storage.setSetting('humanize', hum.checked).catch(() => {}));
+    const saveSustain = () => {
+      const c = DM.midi.getSustainConfig();
+      DM.storage.setSetting('sustain', { mode: c.mode, velocity: c.velocity }).catch(() => {});
+    };
+    const sm = DM.util.$('#sustainMode'); sm && sm.addEventListener('change', saveSustain);
+    const sv = DM.util.$('#sustainVel'); sv && sv.addEventListener('change', saveSustain);
     const vol = DM.util.$('#masterVol');
     vol && vol.addEventListener('change', () => DM.storage.setSetting('masterVol', +vol.value).catch(() => {}));
   }

@@ -69,6 +69,23 @@
         </select>
       </label>
       <label class="check"><input id="humanize" type="checkbox" checked /> Humanize (±10ms / ±3% pitch)</label>
+
+      <h2>Foot pedal (CC64)</h2>
+      <label class="field">
+        <span>Sustain pedal plays</span>
+        <select id="sustainMode">
+          <option value="kick">Kick</option>
+          <option value="snare">Snare</option>
+          <option value="clap">Clap</option>
+          <option value="crash">Crash</option>
+          <option value="hihat">Hi-hat pedal (open/close)</option>
+          <option value="off">Off</option>
+        </select>
+      </label>
+      <label class="field">
+        <span>Pedal velocity <output id="sustainVelOut">110</output></span>
+        <input id="sustainVel" type="range" min="1" max="127" value="110" />
+      </label>
     </section>
 
     <!-- ── Center: drum kit, pads + visual feedback ──────────────────── -->

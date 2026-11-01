@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "python3 -m http.server 8000",
     "start": "python3 -m http.server 8000",
-    "serve:isolated": "python3 serve.py 8000"
+    "serve:isolated": "python3 serve.py 8000",
+    "serve:https": "python3 serve_https.py 8443"
   },
   "keywords": ["web-midi", "web-audio", "drum-machine", "drums", "midi", "indexeddb", "vanilla-js"],
   "author": "",

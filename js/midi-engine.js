@@ -4,6 +4,8 @@
  * Parses incoming MIDI, resolves notes to canonical slots via an editable map,
  * tracks the hi-hat pedal (CC4) to decide open/half/closed, and forwards hits
  * to the audio engine with velocity. Also supports MIDI-learn for remapping.
+ * A keyboard's sustain/damper pedal (CC64) can act as a drum foot pedal: it
+ * either triggers a slot on press (kick by default) or drives the hi-hat.
  *
  * Events emitted (subscribe with DM.midi.on):
  *   'state'   -> { supported, enabled, error }
@@ -47,6 +49,15 @@ DM.midi = (function () {
       openThresh: 35,      // below -> open
       closedThresh: 95,    // above -> closed, in between -> half-open
       lastClosed: false,   // for chick detection on close
+    },
+    // sustain/damper pedal (CC64) used as a drum foot pedal
+    sustain: {
+      cc: 64,
+      mode: 'kick',        // a slot to trigger on press, 'hihat' (acts as CC4), or 'off'
+      velocity: 110,       // CC64 carries no velocity, so hits use a fixed one
+      pressThresh: 64,     // >= this -> pressed (half-damper pedals send 0..127)
+      releaseThresh: 40,   // <  this -> released (hysteresis avoids double hits)
+      down: false,
     },
   };
 
@@ -133,17 +144,36 @@ DM.midi = (function () {
   }
 
   function handleCC(controller, value) {
-    if (controller === state.pedal.cc) {
-      state.pedal.value = value;
-      const closed = isPedalClosed();
-      // Pedal chick: edge transition open -> fully closed makes a sound.
-      if (closed && !state.pedal.lastClosed) {
-        triggerSlot('hihat_pedal', 90);
-        state.events.emit('note', { note: 44, velocity: 90, slot: 'hihat_pedal', latencyMs: null });
-      }
-      state.pedal.lastClosed = closed;
+    if (controller === state.sustain.cc && state.sustain.mode !== 'off') {
+      handleSustain(value);
+    } else if (controller === state.pedal.cc) {
+      handleHiHatPedal(value);
     }
     state.events.emit('cc', { controller, value });
+  }
+
+  /** CC64 as a foot pedal: trigger on the press edge, or stand in for CC4. */
+  function handleSustain(value) {
+    const s = state.sustain;
+    if (s.mode === 'hihat') { handleHiHatPedal(value); return; }
+    if (!s.down && value >= s.pressThresh) {
+      s.down = true;
+      triggerSlot(s.mode, s.velocity);
+      state.events.emit('note', { note: null, velocity: s.velocity, slot: s.mode, latencyMs: null });
+    } else if (s.down && value < s.releaseThresh) {
+      s.down = false;
+    }
+  }
+
+  function handleHiHatPedal(value) {
+    state.pedal.value = value;
+    const closed = isPedalClosed();
+    // Pedal chick: edge transition open -> fully closed makes a sound.
+    if (closed && !state.pedal.lastClosed) {
+      triggerSlot('hihat_pedal', 90);
+      state.events.emit('note', { note: 44, velocity: 90, slot: 'hihat_pedal', latencyMs: null });
+    }
+    state.pedal.lastClosed = closed;
   }
 
   function closedAmount() {
@@ -191,12 +221,14 @@ DM.midi = (function () {
 
   function setPedalConfig(cfg) { Object.assign(state.pedal, cfg); }
   function getPedalConfig() { return Object.assign({}, state.pedal); }
+  function setSustainConfig(cfg) { Object.assign(state.sustain, cfg); state.sustain.down = false; }
+  function getSustainConfig() { return Object.assign({}, state.sustain); }
 
   return {
     on, enable, refreshDevices, selectDevice,
     getMapping, setMapping, clearMapping, resetMapping, setMappingTable,
     learn, cancelLearn,
-    setPedalConfig, getPedalConfig,
+    setPedalConfig, getPedalConfig, setSustainConfig, getSustainConfig,
     DEFAULT_MAP,
     get inputs() { return state.inputs; },
     get selectedId() { return state.selectedId; },

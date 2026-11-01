@@ -122,6 +122,12 @@ DM.UI = (function () {
     $('#velCurve').addEventListener('change', (e) => DM.AudioEngine.setVelocityCurve(e.target.value));
     $('#humanize').addEventListener('change', (e) => DM.AudioEngine.setHumanize({ enabled: e.target.checked }));
 
+    // sustain pedal (CC64) as a drum foot pedal
+    $('#sustainMode').addEventListener('change', (e) => DM.midi.setSustainConfig({ mode: e.target.value }));
+    bindRange('#sustainVel', '#sustainVelOut', (v) => {
+      DM.midi.setSustainConfig({ velocity: v }); return String(v);
+    });
+
     // metronome
     $('#metroBtn').addEventListener('click', () => {
       DM.metronome.toggle();

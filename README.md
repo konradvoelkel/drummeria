@@ -33,6 +33,15 @@ python3 -m http.server 8000
 > `file://` page — and a Chromium browser (Chrome/Edge/Opera). Safari/Firefox have
 > limited or no Web MIDI support; the synthesised kits + clickable drum kit still work.
 
+**Option C — play from another device on your LAN (e.g. a tablet with the MIDI keyboard):**
+```bash
+python3 serve_https.py
+# open https://<this-computer>:8443 on the tablet, accept the self-signed cert warning
+```
+`http://<lan-ip>` is not a secure context, so Web MIDI would be missing there; this
+server uses a self-signed certificate (created in `.cert/`) and redirects plain
+`http://` on the same port to `https://`.
+
 ## No drums? No problem
 
 You don't need a MIDI kit to hear the app:
@@ -56,6 +65,9 @@ You don't need a MIDI kit to hear the app:
 - **Hi-hat state machine** — open / **half-open** / closed driven by the foot pedal
   (CC4), with a pedal "chick", and a **choke group** so a closed hit silences a
   ringing open hat.
+- **Keyboard sustain pedal (CC64) as a foot pedal** — plays the kick (or snare,
+  clap, crash) on press, or acts as the hi-hat pedal; continuous/half-damper pedals
+  are handled with hysteresis so one press is one hit.
 - **6 built-in synthesised kits**: Acoustic, Rock, Jazz, Electronic 808,
   Vintage Linn, Jazz Brushes.
 - **Sample packs**: download/import ZIPs of CC0 one-shots → unzipped in-browser →
