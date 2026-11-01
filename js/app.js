@@ -71,6 +71,9 @@ DM.app = (function () {
       const hum = await DM.storage.getSetting('humanize');
       if (hum != null) { DM.AudioEngine.setHumanize({ enabled: hum }); const el = DM.util.$('#humanize'); if (el) el.checked = hum; }
 
+      const keys = await DM.storage.getSetting('notesEnabled');
+      if (keys != null) { DM.midi.setNotesEnabled(keys); const el = DM.util.$('#notesEnabled'); if (el) el.checked = keys; }
+
       const sus = await DM.storage.getSetting('sustain');
       if (sus) {
         DM.midi.setSustainConfig(sus);
@@ -92,6 +95,8 @@ DM.app = (function () {
     vc && vc.addEventListener('change', () => DM.storage.setSetting('velCurve', vc.value).catch(() => {}));
     const hum = DM.util.$('#humanize');
     hum && hum.addEventListener('change', () => DM.storage.setSetting('humanize', hum.checked).catch(() => {}));
+    const keys = DM.util.$('#notesEnabled');
+    keys && keys.addEventListener('change', () => DM.storage.setSetting('notesEnabled', keys.checked).catch(() => {}));
     const saveSustain = () => {
       const c = DM.midi.getSustainConfig();
       DM.storage.setSetting('sustain', { mode: c.mode, velocity: c.velocity }).catch(() => {});

@@ -67,7 +67,8 @@ You don't need a MIDI kit to hear the app:
   ringing open hat.
 - **Keyboard sustain pedal (CC64) as a foot pedal** — plays the kick (or snare,
   clap, crash) on press, or acts as the hi-hat pedal; continuous/half-damper pedals
-  are handled with hysteresis so one press is one hit.
+  are handled with hysteresis so one press is one hit. Untick **Keys play drums**
+  to play the keyboard as a piano while the pedal keeps drumming.
 - **6 built-in synthesised kits**: Acoustic, Rock, Jazz, Electronic 808,
   Vintage Linn, Jazz Brushes.
 - **Sample packs**: download/import ZIPs of CC0 one-shots → unzipped in-browser →

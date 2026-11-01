@@ -40,6 +40,7 @@ DM.midi = (function () {
     selectedId: 'all',     // 'all' or a specific input id
     map: Object.assign({}, DEFAULT_MAP),
     learnSlot: null,       // when set, next note is assigned to this slot
+    notesEnabled: true,    // false: ignore note hits (play piano, pedal still drums)
     events: U.emitter(),
     // hi-hat pedal state machine
     pedal: {
@@ -131,6 +132,8 @@ DM.midi = (function () {
       return;
     }
 
+    if (!state.notesEnabled) return;   // keys are playing piano, not drums
+
     let slot = state.map[note];
     if (!slot) return;                  // unmapped pad
     slot = resolveHiHat(slot);          // apply pedal logic for hi-hats
@@ -221,6 +224,7 @@ DM.midi = (function () {
 
   function setPedalConfig(cfg) { Object.assign(state.pedal, cfg); }
   function getPedalConfig() { return Object.assign({}, state.pedal); }
+  function setNotesEnabled(on) { state.notesEnabled = !!on; }
   function setSustainConfig(cfg) { Object.assign(state.sustain, cfg); state.sustain.down = false; }
   function getSustainConfig() { return Object.assign({}, state.sustain); }
 
@@ -229,6 +233,8 @@ DM.midi = (function () {
     getMapping, setMapping, clearMapping, resetMapping, setMappingTable,
     learn, cancelLearn,
     setPedalConfig, getPedalConfig, setSustainConfig, getSustainConfig,
+    setNotesEnabled,
+    get notesEnabled() { return state.notesEnabled; },
     DEFAULT_MAP,
     get inputs() { return state.inputs; },
     get selectedId() { return state.selectedId; },

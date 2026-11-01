@@ -108,6 +108,7 @@ DM.UI = (function () {
 
   function bindControls() {
     $('#deviceSelect').addEventListener('change', (e) => DM.midi.selectDevice(e.target.value));
+    $('#notesEnabled').addEventListener('change', (e) => DM.midi.setNotesEnabled(e.target.checked));
 
     $('#kitSelect').addEventListener('change', (e) => DM.app.selectKit(e.target.value));
     $('#kit2Select').addEventListener('change', (e) => DM.app.selectSecondaryKit(e.target.value));
