@@ -70,6 +70,71 @@ DM.grooves = (function () {
       },
     },
     {
+      id: 'deephouse', name: 'Deep house (shuffled)', bpm: 122, swing: 0.06,
+      tracks: {
+        kick: on([0, 4, 8, 12, 16, 20, 24, 28], 112),
+        clap: on([4, 12, 20, 28], 90),
+        hihat_open: on([2, 6, 10, 14, 18, 22, 26, 30], 72),
+        hihat_closed: Array.from({ length: STEPS }, (_, s) => s)
+          .filter((s) => s % 4 !== 2)
+          .map((s) => [s, s % 2 ? 50 : 34]),
+        rim: [[7, 40], [13, 34], [23, 40], [30, 36]],
+      },
+    },
+    {
+      id: 'techhouse', name: 'Tech house', bpm: 125, swing: 0.03,
+      tracks: {
+        kick: on([0, 4, 8, 12, 16, 20, 24, 28], 120),
+        clap: on([4, 12, 20, 28], 100),
+        hihat_open: on([2, 6, 10, 14, 18, 22, 26, 30], 88),
+        hihat_closed: Array.from({ length: STEPS }, (_, s) => s)
+          .map((s) => [s, s % 4 === 2 ? 0 : s % 2 ? 62 : 40]).filter(([, v]) => v),
+        rim: [[3, 70], [11, 62], [14, 55], [19, 70], [27, 62], [31, 58]],
+        cowbell: [[10, 55], [26, 55]],
+      },
+    },
+    {
+      id: 'trance', name: 'Trance', bpm: 138, swing: 0,
+      tracks: {
+        crash: [[0, 100]],
+        kick: on([0, 4, 8, 12, 16, 20, 24, 28], 122),
+        clap: on([4, 12, 20, 28], 98),
+        hihat_open: on([2, 6, 10, 14, 18, 22, 26, 30], 96),
+        hihat_closed: on([1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31], 46),
+        // 16th snare roll building into bar 2's downbeat
+        snare: [[12, 50], [13, 58], [14, 66], [15, 76]],
+        ride: on([2, 6, 10, 14, 18, 22, 26, 30], 45),
+      },
+    },
+    {
+      id: 'psytrance', name: 'Psytrance', bpm: 145, swing: 0,
+      tracks: {
+        kick: on([0, 4, 8, 12, 16, 20, 24, 28], 124),
+        snare: [[4, 92], [12, 92], [20, 92], [28, 92], [29, 60], [30, 72], [31, 86]],
+        hihat_open: on([2, 6, 10, 14, 18, 22, 26], 92),
+        hihat_closed: Array.from({ length: STEPS }, (_, s) => s)
+          .filter((s) => s % 4 !== 2 && s % 4 !== 0)
+          .map((s) => [s, s % 4 === 3 ? 72 : 54]),
+        ride: on([2, 6, 10, 14, 18, 22, 26, 30], 58),
+        crash: [[0, 92]],
+      },
+    },
+    {
+      id: 'peaktechno', name: 'Peak-time techno', bpm: 132, swing: 0,
+      tracks: {
+        crash: [[0, 105]],
+        kick: on([0, 4, 8, 12, 16, 20, 24, 28], 127),
+        clap: on([4, 12, 20, 28], 104),
+        snare: on([4, 12, 20, 28], 70),
+        hihat_closed: Array.from({ length: STEPS }, (_, s) => s)
+          .filter((s) => s % 4 !== 2)
+          .map((s) => [s, s % 4 === 0 ? 50 : s % 2 ? 80 : 64]),
+        hihat_open: on([2, 6, 10, 14, 18, 22, 26, 30], 100),
+        ride: on([0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30], 52),
+        rim: [[3, 64], [6, 52], [11, 64], [19, 64], [22, 52], [27, 64], [30, 70]],
+      },
+    },
+    {
       id: 'jazz', name: 'Jazz swing (ride)', bpm: 142, swing: 0.16,
       tracks: {
         ride: [[0, 95], [4, 80], [6, 70], [8, 95], [12, 80], [14, 70],

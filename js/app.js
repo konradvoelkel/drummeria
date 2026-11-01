@@ -13,14 +13,30 @@ DM.app = (function () {
   // Sample kits served from the kits/ folder (populated when running over HTTP).
   let folderKits = [];
 
-  /** Discover kits/index.json (HTTP only; silently ignored on file://). */
+  /** Discover kits/index.json and the uncommitted kits/local/index.json
+   *  (HTTP only; silently ignored on file://). Local kits are listed first. */
   async function discoverFolderKits() {
+    folderKits = [];
+    for (const url of ['kits/local/index.json', 'kits/index.json']) {
+      try {
+        const res = await fetch(url);
+        if (!res.ok) continue;
+        const data = await res.json();
+        const kits = (data.kits || []).filter((k) => !DM.kits.get(k.id)); // synth wins
+        const present = await Promise.all(kits.map(hasAudio));
+        folderKits.push(...kits.filter((k, i) => present[i]));
+      } catch (e) { /* file:// or no server — fine, synth kits still work */ }
+    }
+  }
+
+  /** The repo ships manifests without audio; only list kits whose samples exist. */
+  async function hasAudio(kit) {
     try {
-      const res = await fetch('kits/index.json');
-      if (!res.ok) return;
-      const data = await res.json();
-      folderKits = (data.kits || []).filter((k) => !DM.kits.get(k.id)); // synth wins
-    } catch (e) { /* file:// or no server — fine, synth kits still work */ }
+      const base = 'kits/' + kit.id + '/';
+      const m = await (await fetch(base + 'kit.json')).json();
+      const first = Object.values(m.instruments)[0].layers[0].file;
+      return (await fetch(base + first, { method: 'HEAD' })).ok;
+    } catch (e) { return false; }
   }
 
   /** Resolve a kit id to an engine-ready kit object (synth preset or samples). */

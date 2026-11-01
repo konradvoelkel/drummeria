@@ -15,6 +15,8 @@ kits/**/*.mp3
 kits/**/*.ogg
 kits/**/*.flac
 kits/**/*.zip
+# kits generated locally from third-party sample collections (manifests too)
+kits/local/
 
 # Local tooling
 node_modules/
