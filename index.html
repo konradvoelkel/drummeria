@@ -110,6 +110,15 @@
         <button id="groovePlayBtn" class="btn">▶ Play groove</button>
         <span class="muted">Hard-wired patterns — hear how the selected kit sounds</span>
       </div>
+      <div class="transport">
+        <label class="check"><input id="followPedal" type="checkbox" /> Follow foot pedal</label>
+        <select id="followKick" class="groove-select">
+          <option value="steer">Pedal steers, groove plays the kick</option>
+          <option value="live">Pedal plays live, groove kick muted</option>
+        </select>
+        <label class="inline">Follow strength <input id="followStrength" type="range" min="10" max="100" value="50" /></label>
+        <span id="followInfo" class="muted"></span>
+      </div>
 
       <h2>Transport</h2>
       <div class="transport">

@@ -12,6 +12,7 @@
  *   'devices' -> [{ id, name, manufacturer }]
  *   'note'    -> { note, velocity, slot, latencyMs }   (for visual feedback)
  *   'cc'      -> { controller, value }
+ *   'pedal'   -> { slot, velocity }                     (CC64 press, slot modes)
  *   'learned' -> { note, slot }
  * ========================================================================== */
 
@@ -56,6 +57,7 @@ DM.midi = (function () {
       cc: 64,
       mode: 'kick',        // a slot to trigger on press, 'hihat' (acts as CC4), or 'off'
       velocity: 110,       // CC64 carries no velocity, so hits use a fixed one
+      sound: true,         // false: press is only a timing signal (groove follow)
       pressThresh: 64,     // >= this -> pressed (half-damper pedals send 0..127)
       releaseThresh: 40,   // <  this -> released (hysteresis avoids double hits)
       down: false,
@@ -161,8 +163,11 @@ DM.midi = (function () {
     if (s.mode === 'hihat') { handleHiHatPedal(value); return; }
     if (!s.down && value >= s.pressThresh) {
       s.down = true;
-      triggerSlot(s.mode, s.velocity);
-      state.events.emit('note', { note: null, velocity: s.velocity, slot: s.mode, latencyMs: null });
+      if (s.sound) {
+        triggerSlot(s.mode, s.velocity);
+        state.events.emit('note', { note: null, velocity: s.velocity, slot: s.mode, latencyMs: null });
+      }
+      state.events.emit('pedal', { slot: s.mode, velocity: s.velocity });
     } else if (s.down && value < s.releaseThresh) {
       s.down = false;
     }

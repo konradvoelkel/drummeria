@@ -69,6 +69,11 @@ You don't need a MIDI kit to hear the app:
   clap, crash) on press, or acts as the hi-hat pedal; continuous/half-damper pedals
   are handled with hysteresis so one press is one hit. Untick **Keys play drums**
   to play the keyboard as a piano while the pedal keeps drumming.
+- **Pedal-follow grooves** — tick **Follow foot pedal** and the demo groove takes
+  its tempo from the sustain pedal: the first press starts it on beat 1, the second
+  sets the tempo, later presses nudge tempo and timing (by **Follow strength**)
+  while the groove stays on its grid. The pedal can just steer (groove plays a tight
+  kick) or play live (groove kick muted). Two bars without a press stop it.
 - **6 built-in synthesised kits**: Acoustic, Rock, Jazz, Electronic 808,
   Vintage Linn, Jazz Brushes.
 - **Sample packs**: download/import ZIPs of CC0 one-shots → unzipped in-browser →
